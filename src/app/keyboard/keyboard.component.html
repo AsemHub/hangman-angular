@@ -1,0 +1,7 @@
+<div class="row" *ngIf="letters && letters.length > 1">
+    <div class="col-md-1" *ngFor="let letter of letters">
+      <button class="btn btn-success" (click)="selectedLetter(letter)">
+        {{ letter }}
+      </button>
+    </div>
+</div>

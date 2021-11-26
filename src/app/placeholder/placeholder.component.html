@@ -1,0 +1,29 @@
+<div class="container" *ngIf="!endGame">
+  <div class="row">
+    <div class="col-md-1" *ngFor="let item of arrayOfWords">
+      <h1 *ngIf="item.boolean">{{ item.letter }}</h1>
+      <h1 *ngIf="!item.boolean">{{ item.hiddenLetter }}</h1>
+    </div>
+  </div>
+
+  <app-keyboard [letters]="letters" (sendLetterToFather)="selectedLetter($event)"></app-keyboard>
+  <div class="row">
+    <p>{{ result }}</p>
+    <p>{{ result1 }}</p>
+  </div>
+  <app-poor-kid [img]="imageUrl"></app-poor-kid>
+  <br />
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+    <button class="btn btn-primary" (click)="playAgain()">Play Again!</button>
+  </div>
+</div>
+
+<div class="row" *ngIf="youLost || youWon">
+  <div class="col-md-12">
+    <h1 *ngIf="youLost">Game Over you Lost</h1>
+    <h1 *ngIf="youWon">Game Over YOU WON</h1>
+  </div>
+</div>
